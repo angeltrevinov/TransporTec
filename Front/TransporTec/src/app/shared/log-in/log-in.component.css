@@ -1,1 +1,7 @@
 /* Add mobile styles for the component here.  */
+StackLayout {
+    vertical-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+}

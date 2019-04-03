@@ -8,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInComponent implements OnInit {
 
-  constructor() { }
+    public strEmail: string = '';
+    public strPassword: string = '';
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
+    //------------------------------------------------------------------------------------------------------------------
+    onSubmit() {
+        alert('email: '+ this.strEmail + ' password: ' + this.strPassword );
+    }
 
 }
