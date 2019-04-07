@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'ns-log-in',
@@ -11,13 +12,15 @@ export class LogInComponent implements OnInit {
     public strEmail: string = '';
     public strPassword: string = '';
 
-    constructor() { }
+    constructor(
+        private router: Router
+    ) { }
 
     ngOnInit() {
     }
     //------------------------------------------------------------------------------------------------------------------
     onSubmit() {
-        alert('email: '+ this.strEmail + ' password: ' + this.strPassword );
+        this.router.navigate( ['/Driver'] );
     }
 
 }
