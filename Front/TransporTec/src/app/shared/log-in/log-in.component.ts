@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {RouterExtensions} from "nativescript-angular";
 
 @Component({
   selector: 'ns-log-in',
@@ -12,15 +12,20 @@ export class LogInComponent implements OnInit {
     public strEmail: string = '';
     public strPassword: string = '';
 
+    //------------------------------------------------------------------------------------------------------------------
     constructor(
-        private router: Router
+        //                                                  //Use RouterExtensions from nativescript
+        private router: RouterExtensions
     ) { }
-
+    //------------------------------------------------------------------------------------------------------------------
     ngOnInit() {
     }
     //------------------------------------------------------------------------------------------------------------------
     onSubmit() {
-        this.router.navigate( ['/Driver'] );
+        this.router.navigate(
+            ['/Driver'],
+            { clearHistory: true }
+            );
     }
 
 }

@@ -1,16 +1,19 @@
 <StackLayout>
-
+<!--------------------------------------------------------------------------------------------------------------------->
     <TextField [(ngModel)]="strEmail"
                hint="Email"
                keyboardType="email"
                autocorrect="false"
                autocapitalizationType="none"
     ></TextField>
-
+<!--------------------------------------------------------------------------------------------------------------------->
     <TextField [(ngModel)]="strPassword"
                hint="Password"
                secure="true">
     </TextField>
-
-    <Button text="Sing In" class="btn btn-primary" (tap)="onSubmit()"></Button>
+<!--------------------------------------------------------------------------------------------------------------------->
+    <Button text="Sing In"
+            class="btn btn-primary"
+            (tap)="onSubmit()">
+    </Button>
 </StackLayout>
