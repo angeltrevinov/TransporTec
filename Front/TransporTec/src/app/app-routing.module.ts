@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
-import {LogInComponent} from "~/app/shared/log-in/log-in.component";
+import {LogInComponent} from "~/app/shared/components/log-in/log-in.component";
 
 const routes: Routes = [
     { path: '', redirectTo: '/LogIn', pathMatch: 'full' },

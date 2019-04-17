@@ -1,18 +1,21 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
-import { LogInComponent } from './log-in/log-in.component';
+import { LogInComponent } from './components/log-in/log-in.component';
 import {NativeScriptFormsModule} from "nativescript-angular";
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
-      LogInComponent
+      LogInComponent,
+      MapComponent
   ],
     imports: [
         NativeScriptCommonModule,
         NativeScriptFormsModule,
     ],
   exports: [
-      LogInComponent
+      LogInComponent,
+      MapComponent
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })
