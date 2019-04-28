@@ -5,8 +5,7 @@ usuarioCtrl.getUsuarios = async (req, res) => {
   const usuarios = await Usuario.find();
   res.json(usuarios);
 }
-usuarioCtrl.createUsuario = function(){
-
+usuarioCtrl.createUsuario = async (req, res) =>{
 }
 usuarioCtrl.getUsuario = function(){
 

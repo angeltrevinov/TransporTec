@@ -10,6 +10,6 @@ const UsuarioSchema = new Schema({
   strPagado: { type: String, required: false},
   strCarrera: { type: String, required: false},
   strTipo: { type: String, required: true},
-})
+});
 
 module.exports = mongoose.model('Usuario', UsuarioSchema);
