@@ -3,6 +3,7 @@ import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { LogInComponent } from './components/log-in/log-in.component';
 import {NativeScriptFormsModule} from "nativescript-angular";
 import { MapComponent } from './components/map/map.component';
+import {LogInService} from "~/app/shared/services/log-in.service";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,9 @@ import { MapComponent } from './components/map/map.component';
       LogInComponent,
       MapComponent
   ],
+    providers: [
+        LogInService
+    ],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class SharedModule { }
