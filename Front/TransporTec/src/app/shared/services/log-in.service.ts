@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {RouterExtensions} from "nativescript-angular";
+import * as dialogs from "tns-core-modules/ui/dialogs";
 
 @Injectable()
 export class LogInService {
@@ -28,7 +29,11 @@ export class LogInService {
                 {clearHistory: true}
             );
         } else {
-            alert('incorrect credentials');
+            dialogs.alert({
+                title: "Incorrect Credentials",
+                message: "Check your email and password",
+                okButtonText: "Ok"
+            })
         }
     }
 }
