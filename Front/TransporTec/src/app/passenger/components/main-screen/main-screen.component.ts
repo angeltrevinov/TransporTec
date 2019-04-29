@@ -8,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainScreenComponent implements OnInit {
 
-  constructor() { }
+    boolShowInfo: boolean = false;
 
+  //--------------------------------------------------------------------------------------------------------------------
+  constructor() { }
+  //--------------------------------------------------------------------------------------------------------------------
   ngOnInit() {
+      this.boolShowInfo = false;
+  }
+  onImageClick() {
+      if(!this.boolShowInfo) {
+          this.boolShowInfo = true;
+      } else {
+          this.boolShowInfo = false;
+      }
   }
 
 }

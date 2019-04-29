@@ -4,11 +4,13 @@ import {PassengerRoutingModule} from "~/app/passenger/passenger-routing.module";
 import { PassengerComponent } from './components/passenger.component';
 import {SharedModule} from "~/app/shared/shared.module";
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
+import { PassengerInfoComponent } from './components/passenger-info/passenger-info.component';
 
 @NgModule({
   declarations: [
       PassengerComponent,
       MainScreenComponent,
+      PassengerInfoComponent,
   ],
   imports: [
       NativeScriptCommonModule,

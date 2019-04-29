@@ -29,10 +29,10 @@ export class LogInComponent implements OnInit {
         //                                                  //      button
         args
     ) {
-        if( this.strEmail && this.strPassword ) {
-            this.boolEnableBtn = true;
-        } else {
+        if ( this.strEmail == '' || this.strPassword == '') {
             this.boolEnableBtn = false;
+        } else if ( this.strEmail && this.strPassword ){
+            this.boolEnableBtn = true;
         }
     }
 
