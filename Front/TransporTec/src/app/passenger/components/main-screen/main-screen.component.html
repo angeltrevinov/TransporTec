@@ -6,7 +6,7 @@
     ></ns-map>
 
     <!-- user Info -->
-    <ns-passenger-info *ngIf="boolShowInfo"></ns-passenger-info>
+    <ns-passenger-info *ngIf="boolShowInfo" (onMessageLogOut)="onLogOut($event)"></ns-passenger-info>
 
 
     <!-- User Image -->
