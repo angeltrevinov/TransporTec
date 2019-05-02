@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {RouterExtensions} from "nativescript-angular";
 import * as dialogs from "tns-core-modules/ui/dialogs";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {TransporTecAPI} from "~/app/shared/config/TransportecAPI";
 
 @Injectable()
@@ -28,7 +28,7 @@ export class LogInService {
                 console.log(data);
             },
             (error) => {
-                console.log(error);
+                console.log('error');
             },
             () => {
                 //                                          //Everything is completed!

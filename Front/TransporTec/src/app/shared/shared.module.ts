@@ -4,6 +4,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import {NativeScriptFormsModule} from "nativescript-angular";
 import { MapComponent } from './components/map/map.component';
 import {LogInService} from "~/app/shared/services/log-in.service";
+import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import {LogInService} from "~/app/shared/services/log-in.service";
     imports: [
         NativeScriptCommonModule,
         NativeScriptFormsModule,
+        NativeScriptHttpClientModule
     ],
   exports: [
       LogInComponent,
