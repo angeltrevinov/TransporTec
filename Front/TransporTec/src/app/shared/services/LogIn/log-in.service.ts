@@ -4,13 +4,15 @@ import * as dialogs from "tns-core-modules/ui/dialogs";
 import { HttpClient } from "@angular/common/http";
 import {TransporTecAPI} from "~/app/shared/config/TransportecAPI";
 import {UserModel} from "~/app/shared/classes/User.model";
+import {UserService} from "~/app/shared/services/User/user.service";
 
 @Injectable()
 export class LogInService {
     //------------------------------------------------------------------------------------------------------------------
     constructor(
         private router: RouterExtensions,
-        private http: HttpClient
+        private http: HttpClient,
+        private userService: UserService
     ) { }
     //------------------------------------------------------------------------------------------------------------------
     LogIn(
@@ -27,7 +29,8 @@ export class LogInService {
             }).subscribe(
             (data) => {
 
-                console.log(UserModel.fromJSON(data));
+                this.userService.setUser(UserModel.fromJSON(data));
+
             },
             (error) => {
                 console.log('error');
@@ -39,14 +42,15 @@ export class LogInService {
 
         if(
             //                                              //If the user is a driver send it to the driver pages
-            strEmail == 'driver') {
+            this.userService.User.strType == 'Chofer') {
             this.router.navigate(
                 ['/Driver'],
                 {clearHistory: true}
             );
         } else if (
             //                                              //If the user is a passenger send it to the passenger pages
-            strEmail == 'passenger'
+            this.userService.User.strType == 'Alumno' ||
+            this.userService.User.strType == 'Personal'
         ) {
             this.router.navigate(
                 ['/Passenger'],

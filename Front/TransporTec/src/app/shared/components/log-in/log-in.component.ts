@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LogInService} from "~/app/shared/services/log-in.service";
+import {LogInService} from "~/app/shared/services/LogIn/log-in.service";
 
 @Component({
     selector: 'ns-log-in',
