@@ -13,6 +13,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Routes
+app.use('/authentication', require('./Routes/authentication.routes'));
 app.use('/api/usuarios', require('./Routes/usuarios.routes'));
 
 //Starting server
