@@ -1,22 +1,33 @@
-<StackLayout>
+<FlexboxLayout class = "page"> 
+<StackLayout class  = "form">
     <!--------------------------------------------------------------------------------------------------------------------->
+    <Image class="logo" src="res://logo"></Image>
+    <Label class= "header" text = "TransporTec"></Label>
+    <StackLayout class = "input-field"> 
     <TextField [(ngModel)]="strEmail"
                (textChange)="onTextChange($event)"
-               hint="Email"
+               hint="Usuario"
                keyboardType="email"
                autocorrect="false"
                autocapitalizationType="none"
     ></TextField>
+    <StackLayout class="hr-light"></StackLayout>
+  </StackLayout>
     <!--------------------------------------------------------------------------------------------------------------------->
+
+  <StackLayout class = "input-field"> 
     <TextField [(ngModel)]="strPassword"
                (textChange)="onTextChange($event)"
-               hint="Password"
+               hint="Contraseña"
                secure="true">
     </TextField>
+    <StackLayout class = "hr-light"></StackLayout>
+  </StackLayout>
     <!--------------------------------------------------------------------------------------------------------------------->
-    <Button text="Sing In"
+    <Button text="Accesar"
             class="btn btn-primary"
             [isEnabled]=" boolEnableBtn"
             (tap)="onSubmit()">
     </Button>
 </StackLayout>
+</FlexboxLayout>
