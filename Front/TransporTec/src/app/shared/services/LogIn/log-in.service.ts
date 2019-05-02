@@ -31,37 +31,37 @@ export class LogInService {
 
                 this.userService.setUser(UserModel.fromJSON(data));
 
+                if(
+                    //                                              //If the user is a driver send it to the driver pages
+                    this.userService.User.strType == 'Chofer') {
+                    this.router.navigate(
+                        ['/Driver'],
+                        {clearHistory: true}
+                    );
+                } else if (
+                    //                                              //If the user is a passenger send it to the passenger pages
+                    this.userService.User.strType == 'Alumno' ||
+                    this.userService.User.strType == 'Personal'
+                ) {
+                    this.router.navigate(
+                        ['/Passenger'],
+                        {clearHistory: true}
+                    );
+                }
+
+
             },
             (error) => {
-                console.log('error');
+                dialogs.alert({
+                    title: "Incorrect Credentials",
+                    message: "Check your email and password",
+                    okButtonText: "Ok"
+                })
             },
             () => {
                 //                                          //Everything is completed!
             }
-        )
+        );
 
-        if(
-            //                                              //If the user is a driver send it to the driver pages
-            this.userService.User.strType == 'Chofer') {
-            this.router.navigate(
-                ['/Driver'],
-                {clearHistory: true}
-            );
-        } else if (
-            //                                              //If the user is a passenger send it to the passenger pages
-            this.userService.User.strType == 'Alumno' ||
-            this.userService.User.strType == 'Personal'
-        ) {
-            this.router.navigate(
-                ['/Passenger'],
-                {clearHistory: true}
-            );
-        } else {
-            dialogs.alert({
-                title: "Incorrect Credentials",
-                message: "Check your email and password",
-                okButtonText: "Ok"
-            })
-        }
     }
 }

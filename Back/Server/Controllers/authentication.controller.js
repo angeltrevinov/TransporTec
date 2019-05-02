@@ -12,8 +12,13 @@ authCtrl.LogIn = async (req, res, next) => {
             strContraseña: 0
         }
     );
-
-    res.json(usuario);
+    if(!usuario){
+        return res.status(400).send({
+            message: 'This is an error!'
+         });
+    } else {
+        res.json(usuario);
+    }
 }
 
 module.exports = authCtrl;

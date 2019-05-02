@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import {RouterExtensions} from "nativescript-angular";
+import {UserService} from "~/app/shared/services/User/user.service";
 
 @Component({
   selector: 'ns-main-screen',
@@ -13,7 +14,10 @@ export class MainScreenComponent implements OnInit {
     boolShowInfo: boolean = false;
 
   //--------------------------------------------------------------------------------------------------------------------
-  constructor(private router: RouterExtensions) { }
+  constructor(
+      private router: RouterExtensions,
+      private userService: UserService
+      ) { }
   //--------------------------------------------------------------------------------------------------------------------
   ngOnInit() {
       this.boolShowInfo = false;
@@ -38,6 +42,7 @@ export class MainScreenComponent implements OnInit {
         // result argument is boolean
 
         if(result){
+            this.userService.eraseUser();
             this.router.navigate([''], {clearHistory: true});
         }
 

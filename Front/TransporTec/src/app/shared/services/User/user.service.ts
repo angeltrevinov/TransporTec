@@ -17,4 +17,8 @@ export class UserService {
   get User(): UserModel {
       return this.User_Z;
   }
+  //--------------------------------------------------------------------------------------------------------------------
+  eraseUser() {
+      this.User_Z = null;
+  }
 }
