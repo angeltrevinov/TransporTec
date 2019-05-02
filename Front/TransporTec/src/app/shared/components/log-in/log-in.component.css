@@ -1,7 +1,49 @@
 /* Add mobile styles for the component here.  */
-StackLayout {
-    vertical-align: center;
-    padding-left: 30px;
-    padding-right: 30px;
-    background-color: white;
+
+/*changes to components form and page given in stacklayout and flexbox*/
+
+.page { 
+	align-items: center; 
+	flex-direction: column;
 }
+
+.form {
+	margin-left: 30; 
+	margin-right: 30;
+	flex-grow: 2; 
+	vertical-align: middle;
+}
+/*logoaligment*/
+.logo { 
+	margin-bottom: 12;
+	height: 90;
+
+		font-weight: bold;
+}
+
+.header { 
+	horizontal-align: center;
+	font-size: 30;
+	font-weight: 600; 
+	margin-bottom: 70;
+	text-align: center;
+	color: #000fb7;
+}
+
+.input-field {
+	margin-bottom: 25;
+}
+
+.input{
+	font-size: 18; 
+	placeholder-color: #A8A8A8;
+}
+
+.btn-primary { 
+	height: 50;
+	margin: 30 5 15 5;
+	background-color: #000fb7;
+	border-radius: 5;
+	font-size: 20;
+	font-weight: 600; 
+ }
