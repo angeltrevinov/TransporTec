@@ -3,6 +3,7 @@ import {RouterExtensions} from "nativescript-angular";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { HttpClient } from "@angular/common/http";
 import {TransporTecAPI} from "~/app/shared/config/TransportecAPI";
+import {UserModel} from "~/app/shared/classes/User.model";
 
 @Injectable()
 export class LogInService {
@@ -25,7 +26,8 @@ export class LogInService {
                 strContraseña: strPassword
             }).subscribe(
             (data) => {
-                console.log(data);
+
+                console.log(UserModel.fromJSON(data));
             },
             (error) => {
                 console.log('error');
