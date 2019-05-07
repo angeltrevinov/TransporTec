@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const UsuarioSchema = new Schema({
+  _id: { type: String, required: true },
   strNombre: { type: String, required: true},
   strContraseña: { type: String, required: true},
   strSexo: { type: String, required: true},

@@ -6,7 +6,11 @@
     ></ns-map>
 
     <!-- user Info -->
-    <ns-passenger-info *ngIf="boolShowInfo" (onMessageLogOut)="onLogOut($event)"></ns-passenger-info>
+    <ns-passenger-info
+            *ngIf="boolShowInfo"
+            (onMessageLogOut)="onLogOut($event)"
+            [User]="userService.User"
+    ></ns-passenger-info>
 
 
     <!-- User Image -->

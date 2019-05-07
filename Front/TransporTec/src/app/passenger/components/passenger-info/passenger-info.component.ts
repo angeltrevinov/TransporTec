@@ -1,5 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {RouterExtensions} from "nativescript-angular";
+import {UserModel} from "~/app/shared/classes/User.model";
 
 @Component({
   selector: 'ns-passenger-info',
@@ -9,12 +10,16 @@ import {RouterExtensions} from "nativescript-angular";
 })
 export class PassengerInfoComponent implements OnInit {
 
+  //---------------- * Input Variables * -------------------
+    @Input() User: UserModel;
+  //---------------- * Output Variables * ------------------
   @Output() onMessageLogOut = new EventEmitter<string>();
 
   //--------------------------------------------------------------------------------------------------------------------
   constructor() { }
   //--------------------------------------------------------------------------------------------------------------------
   ngOnInit() {
+      console.log(this.User);
   }
   //--------------------------------------------------------------------------------------------------------------------
   onTapLogOut() {
