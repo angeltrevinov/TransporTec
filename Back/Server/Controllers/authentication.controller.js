@@ -17,7 +17,6 @@ authCtrl.LogIn = async (req, res, next) => {
             message: 'This is an error!'
          });
     } else {
-        console.log(Usuario);
         res.json(usuario);
     }
 }

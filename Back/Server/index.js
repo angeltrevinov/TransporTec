@@ -13,8 +13,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Routes
-app.use('/authentication', require('./Routes/authentication.routes'));
-app.use('/api/usuarios', require('./Routes/usuarios.routes'));
+app.use('/authentication', require('./Routes/authentication.routes')); //Routes involving User LogIn and Auth
+app.use('/rutas', require('./Routes/rutas.routes')); //Routes Involving the information of the different Rutas
 
 //Starting server
 app.listen(app.get('port'), () => {
