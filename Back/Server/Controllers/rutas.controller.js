@@ -1,7 +1,23 @@
+const Ruta = require('../Models/rutas.js');
 const rutasCtrl = {};
 
 rutasCtrl.getRuta = async (req, res, next) => {
-    console.log(req.params.id);    
+    
+    strIdRuta = req.params.id
+    const ruta = await Ruta.findOne(
+        {
+            _id: strIdRuta
+        }
+    );
+
+    if(!ruta) {
+        return res.status(400).send({
+            message: 'Ruta not found!'
+        });
+    } else {
+        res.json(ruta);
+    }
+
 }
 
 module.exports = rutasCtrl;
