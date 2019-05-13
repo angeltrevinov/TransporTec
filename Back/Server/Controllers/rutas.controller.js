@@ -3,6 +3,7 @@ const rutasCtrl = {};
 
 rutasCtrl.getRuta = async (req, res, next) => {
     
+    //This is the id of the route, just to get the info of the route
     strIdRuta = req.params.id
     const ruta = await Ruta.findOne(
         {
