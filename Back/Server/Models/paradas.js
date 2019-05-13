@@ -6,7 +6,7 @@ const ParadaSchema = new Schema({
     decLon: { type: Number, required: true },
     decLat: { type: Number, required: true },
     intMin: { type: Number, required: true },
-    strIdRuta: { type: Array, required: true }
+    strNombre: { type: String, required: true},
 });
 
 module.exports = mongoose.model('Parada', ParadaSchema);
