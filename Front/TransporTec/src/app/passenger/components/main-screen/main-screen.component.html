@@ -2,9 +2,9 @@
 
     <!-- Map --->
     <ns-map
-            *ngIf="rutaUserRuta.arrParadas"
+            visibility="{{ this.userService.Ruta.arrParadas ? 'visible' : 'collapsed' }}"
     row="0"
-    [arrParadas]="rutaUserRuta.arrParadas"
+    [arrParadas]="this.userService.Ruta.arrParadas"
     ></ns-map>
 
     <!-- user Info -->

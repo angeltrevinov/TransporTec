@@ -14,7 +14,6 @@ import {RutaModel} from "~/app/shared/classes/Ruta.model";
 export class MainScreenComponent implements OnInit {
 
     boolShowInfo: boolean = false;
-    rutaUserRuta: RutaModel;
 
   //--------------------------------------------------------------------------------------------------------------------
   constructor(
@@ -24,12 +23,11 @@ export class MainScreenComponent implements OnInit {
       ) { }
   //--------------------------------------------------------------------------------------------------------------------
   ngOnInit() {
-
       this.rutasService.getRuta(
           this.userService.User.strIdRoute
       ).subscribe(
           (data) => {
-              this.rutaUserRuta = RutaModel.fromJSON(data);
+              this.userService.setRuta( RutaModel.fromJSON(data) );
           },
           (error) => {
               dialogs.alert( {
@@ -45,7 +43,6 @@ export class MainScreenComponent implements OnInit {
   //--------------------------------------------------------------------------------------------------------------------
   onImageClick() {
 
-      console.log(this.boolShowInfo);
       if(this.boolShowInfo == false) {
           this.boolShowInfo = true;
       } else {
@@ -63,7 +60,7 @@ export class MainScreenComponent implements OnInit {
         // result argument is boolean
 
         if(result){
-            this.userService.eraseUser();
+            this.userService.eraseInfo();
             this.router.navigate([''], {clearHistory: true});
         }
 
