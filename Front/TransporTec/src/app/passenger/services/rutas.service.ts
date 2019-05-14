@@ -17,22 +17,8 @@ export class RutasService {
 
       let strUrl: string = TransporTecAPI.RutasURL;
 
-      this.http.get<object>(
+      return this.http.get<object>(
           strUrl + '/' + strIdRuta
-      ).subscribe(
-          (data) => {
-              console.log(RutaModel.fromJSON(data));
-          },
-          (error) => {
-              dialogs.alert( {
-                  title: 'Error',
-                  message: "something went wrong",
-                  okButtonText: "Ok"
-              });
-          },
-          () => {
-              //everything is ok
-          }
       );
 
   }

@@ -20,7 +20,7 @@ export class RutaModel {
 
     static fromJSON(data: any): RutaModel {
         return new RutaModel(
-            data._Id,
+            data._id,
             data.strNombre,
             data.intHoraInic,
             data.intHoraFin,
