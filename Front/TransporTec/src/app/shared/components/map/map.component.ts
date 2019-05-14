@@ -39,7 +39,7 @@ export class MapComponent {
             var marker = new Marker();
             marker.position = Position.positionFromLatLng(parada.decLac, parada.decLon);
             marker.title = parada.strName;
-            marker.snippet = parada.intMin + " Mins";
+            marker.snippet = parada.intMin + " Mins, every hour";
             marker.userData = {index: 1};
             this.mapView.addMarker(marker);
         }
