@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import {RouterExtensions} from "nativescript-angular";
 import {UserService} from "~/app/shared/services/User/user.service";
+import {RutasService} from "~/app/passenger/services/rutas.service";
+import {RutaModel} from "~/app/shared/classes/Ruta.model";
 
 @Component({
   selector: 'ns-main-screen',
@@ -12,15 +14,36 @@ import {UserService} from "~/app/shared/services/User/user.service";
 export class MainScreenComponent implements OnInit {
 
     boolShowInfo: boolean = false;
+    rutaUserRuta: RutaModel;
+    boolShowMap: boolean = false;
 
   //--------------------------------------------------------------------------------------------------------------------
   constructor(
       private router: RouterExtensions,
-      private userService: UserService
+      private userService: UserService,
+      private rutasService: RutasService
       ) { }
   //--------------------------------------------------------------------------------------------------------------------
   ngOnInit() {
       this.boolShowInfo = false;
+
+      this.rutasService.getRuta(
+          this.userService.User.strIdRoute
+      ).subscribe(
+          (data) => {
+              this.rutaUserRuta = RutaModel.fromJSON(data);
+          },
+          (error) => {
+              dialogs.alert( {
+                  title: 'Error',
+                  message: "something went wrong",
+                  okButtonText: "Ok"
+              });
+          },
+          () => {
+              this.boolShowMap = true;
+          }
+      );
   }
   //--------------------------------------------------------------------------------------------------------------------
   onImageClick() {
@@ -43,6 +66,7 @@ export class MainScreenComponent implements OnInit {
 
         if(result){
             this.userService.eraseUser();
+            this.boolShowMap = false;
             this.router.navigate([''], {clearHistory: true});
         }
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {registerElement} from "nativescript-angular";
 import {MapView, Marker, Position} from "nativescript-google-maps-sdk";
+import {ParadaModel} from "~/app/shared/classes/Parada.model";
 
 // Important - must register MapView plugin in order to use in Angular templates
 registerElement('MapView', () => MapView);
@@ -13,7 +14,9 @@ registerElement('MapView', () => MapView);
 })
 export class MapComponent {
 
-    latitude =  25.651797;
+   @Input() arrParadas: ParadaModel[];
+
+    latitude =  25.651797;                                  //25.651797
     longitude = -100.289518;
     zoom = 15;
     minZoom = 0;
@@ -28,40 +31,35 @@ export class MapComponent {
     constructor() {
     }
 
+
     //Map events
     onMapReady(event) {
-        console.log('Map Ready');
-
-        this.mapView = event.object;
-
-        console.log("Setting a marker...");
-
-        var marker = new Marker();
-        marker.position = Position.positionFromLatLng( this.latitude, this.longitude);
-        marker.title = "Tec de Monterrey";
-        marker.snippet = "Monterrey";
-        marker.userData = {index: 1};
-        this.mapView.addMarker(marker);
+        for(let parada of this.arrParadas) {
+            this.mapView = event.object;
+            var marker = new Marker();
+            marker.position = Position.positionFromLatLng(parada.decLac, parada.decLon);
+            marker.title = parada.strName;
+            marker.snippet = parada.intMin + " Mins, every hour";
+            marker.userData = {index: 1};
+            this.mapView.addMarker(marker);
+        }
     }
 
     onCoordinateTapped(args) {
-        console.log("Coordinate Tapped, Lat: " + args.position.latitude + ", Lon: " + args.position.longitude, args);
     }
 
     onMarkerEvent(args) {
-        console.log("Marker Event: '" + args.eventName
-            + "' triggered on: " + args.marker.title
-            + ", Lat: " + args.marker.position.latitude + ", Lon: " + args.marker.position.longitude, args);
+
     }
 
     onCameraChanged(args) {
-        console.log("Camera changed: " + JSON.stringify(args.camera), JSON.stringify(args.camera) === this.lastCamera);
         this.lastCamera = JSON.stringify(args.camera);
     }
 
     onCameraMove(args) {
-        console.log("Camera moving: " + JSON.stringify(args.camera));
     }
+
+
 
 
 }
