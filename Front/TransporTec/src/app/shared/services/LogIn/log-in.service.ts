@@ -28,7 +28,6 @@ export class LogInService {
                 strContraseña: strPassword
             }).subscribe(
             (data) => {
-
                 this.userService.setUser(UserModel.fromJSON(data));
 
                 if(

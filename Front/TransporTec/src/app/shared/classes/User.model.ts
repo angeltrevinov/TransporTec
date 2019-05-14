@@ -10,7 +10,9 @@ export class UserModel {
         private strEmail_Z: string,
         private boolPaid_Z: boolean,
         private strCareer_Z: string,
-        private strType_Z: string
+        private strType_Z: string,
+        private strIdRoute_Z: string,
+        private intCont_Z: number
 
     ) {
 
@@ -31,7 +33,10 @@ export class UserModel {
     public get strCareer(): string { return this.strCareer_Z; }
     //------------------------------------------------------------------------------------------------------------------
     public get strType(): string { return this.strType_Z; }
-
+    //------------------------------------------------------------------------------------------------------------------
+    public get strIdRoute(): string { return this.strIdRoute_Z; }
+    //------------------------------------------------------------------------------------------------------------------
+    public get intCont(): number { return  this.intCont_Z; }
     //------------------------------------------------------------------------------------------------------------------
     static fromJSON(data: any): UserModel {
         return new UserModel(
@@ -42,7 +47,9 @@ export class UserModel {
             data.strCorreo,
             data.strPagado,
             data.strCarrera,
-            data.strTipo
+            data.strTipo,
+            data.strIdRuta,
+            data.intCont
         );
     }
 

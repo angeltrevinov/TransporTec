@@ -45,22 +45,17 @@ export class MapComponent {
     }
 
     onCoordinateTapped(args) {
-        console.log("Coordinate Tapped, Lat: " + args.position.latitude + ", Lon: " + args.position.longitude, args);
     }
 
     onMarkerEvent(args) {
-        console.log("Marker Event: '" + args.eventName
-            + "' triggered on: " + args.marker.title
-            + ", Lat: " + args.marker.position.latitude + ", Lon: " + args.marker.position.longitude, args);
+
     }
 
     onCameraChanged(args) {
-        console.log("Camera changed: " + JSON.stringify(args.camera), JSON.stringify(args.camera) === this.lastCamera);
         this.lastCamera = JSON.stringify(args.camera);
     }
 
     onCameraMove(args) {
-        console.log("Camera moving: " + JSON.stringify(args.camera));
     }
 
 

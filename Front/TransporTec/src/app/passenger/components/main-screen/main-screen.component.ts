@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import {RouterExtensions} from "nativescript-angular";
 import {UserService} from "~/app/shared/services/User/user.service";
+import {RutasService} from "~/app/passenger/services/rutas.service";
 
 @Component({
   selector: 'ns-main-screen',
@@ -16,11 +17,14 @@ export class MainScreenComponent implements OnInit {
   //--------------------------------------------------------------------------------------------------------------------
   constructor(
       private router: RouterExtensions,
-      private userService: UserService
+      private userService: UserService,
+      private rutasService: RutasService
       ) { }
   //--------------------------------------------------------------------------------------------------------------------
   ngOnInit() {
       this.boolShowInfo = false;
+
+      this.rutasService.getRuta(this.userService.User.strIdRoute);
   }
   //--------------------------------------------------------------------------------------------------------------------
   onImageClick() {
