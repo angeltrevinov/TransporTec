@@ -2,14 +2,14 @@
 
     <!-- Map --->
     <ns-map
-            visibility="{{ rutaUserRuta.arrParadas ? 'visible' : 'collapsed' }}"
+            *ngIf=" rutaUserRuta.arrParadas"
     row="0"
     [arrParadas]="rutaUserRuta.arrParadas"
     ></ns-map>
 
     <!-- user Info -->
     <ns-passenger-info
-            [hiddden]="!boolShowInfo"
+            *ngIf="boolShowInfo"
             (onMessageLogOut)="onLogOut($event)"
             [User]="userService.User"
     ></ns-passenger-info>

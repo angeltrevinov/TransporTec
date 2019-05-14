@@ -15,7 +15,6 @@ export class MainScreenComponent implements OnInit {
 
     boolShowInfo: boolean = false;
     rutaUserRuta: RutaModel;
-    boolShowMap: boolean = false;
 
   //--------------------------------------------------------------------------------------------------------------------
   constructor(
@@ -25,7 +24,6 @@ export class MainScreenComponent implements OnInit {
       ) { }
   //--------------------------------------------------------------------------------------------------------------------
   ngOnInit() {
-      this.boolShowInfo = false;
 
       this.rutasService.getRuta(
           this.userService.User.strIdRoute
@@ -41,14 +39,14 @@ export class MainScreenComponent implements OnInit {
               });
           },
           () => {
-              this.boolShowMap = true;
           }
       );
   }
   //--------------------------------------------------------------------------------------------------------------------
   onImageClick() {
 
-      if(!this.boolShowInfo) {
+      console.log(this.boolShowInfo);
+      if(this.boolShowInfo == false) {
           this.boolShowInfo = true;
       } else {
           this.boolShowInfo = false;
@@ -66,7 +64,6 @@ export class MainScreenComponent implements OnInit {
 
         if(result){
             this.userService.eraseUser();
-            this.boolShowMap = false;
             this.router.navigate([''], {clearHistory: true});
         }
 
