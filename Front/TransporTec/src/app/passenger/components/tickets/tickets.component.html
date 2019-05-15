@@ -6,5 +6,5 @@
     <Button text="Button" (tap)="onSubmitTap()"></Button>
 </StackLayout>
 <StackLayout orientation="vertical" width="250" height="400" backgroundColor="white" *ngIf="userService.strTicket">
-    <Image src="userService.strTicket"></Image>
+    <Image src="{{ userService.strTicket }}"></Image>
 </StackLayout>

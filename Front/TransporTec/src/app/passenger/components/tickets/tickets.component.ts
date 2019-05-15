@@ -35,8 +35,7 @@ export class TicketsComponent implements OnInit {
         this.ticketService.submit().
         subscribe(
             (data) => {
-                console.log(data);
-
+                this.userService.setTicket(data);
             },
             (error) => {
                 alert('An error occured');
