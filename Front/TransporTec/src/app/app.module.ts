@@ -7,6 +7,7 @@ import {SharedModule} from "~/app/shared/shared.module";
 import {DriverModule} from "~/app/driver/driver.module";
 import {platformNames} from "tns-core-modules/platform";
 import {PassengerModule} from "~/app/passenger/passenger.module";
+import { TicketsComponent } from './app/passenger/services/tickets/tickets.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -33,6 +34,7 @@ if (platformNames.ios) {
     ],
     declarations: [
         AppComponent,
+        TicketsComponent,
     ],
     providers: [],
     schemas: [

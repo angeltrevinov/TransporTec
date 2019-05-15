@@ -7,6 +7,7 @@ export class UserService {
 
     private User_Z: UserModel = null;
     private userRutas_Z: RutaModel;
+    private strTicket_Z: string;
 
   //--------------------------------------------------------------------------------------------------------------------
   constructor() { }
@@ -18,6 +19,12 @@ export class UserService {
   //--------------------------------------------------------------------------------------------------------------------
   get User(): UserModel {
       return this.User_Z;
+  }
+  setTicket(tick: string){
+      this.strTicket_Z = tick;
+  }
+  get strTicket(): string{
+      return this.strTicket_Z;
   }
   //--------------------------------------------------------------------------------------------------------------------
   eraseInfo() {

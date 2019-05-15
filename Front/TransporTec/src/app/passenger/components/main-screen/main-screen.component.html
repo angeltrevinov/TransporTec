@@ -14,6 +14,10 @@
             [User]="userService.User"
     ></ns-passenger-info>
 
+    <ns-tickets
+            *ngIf="boolShowTicket"
+    ></ns-tickets>
+
 
     <!-- User Image -->
     <Image
@@ -27,6 +31,17 @@
             marginTop="10"
             marginLeft="10"
             (tap)="onImageClick()"
+    ></Image>
+
+    <Image src="https://img.icons8.com/ios-glyphs/80/000000/add-ticket.png"
+           width="60"
+           height="60"
+           row="0"
+           horizontalAlignment="right"
+           verticalAlignment="top"
+           marginTop="10"
+           marginRight="10"
+           (tap)="onTicketClick()"
     ></Image>
 
 

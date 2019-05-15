@@ -14,6 +14,7 @@ import {RutaModel} from "~/app/shared/classes/Ruta.model";
 export class MainScreenComponent implements OnInit {
 
     boolShowInfo: boolean = false;
+    boolShowTicket: boolean = false;
 
   //--------------------------------------------------------------------------------------------------------------------
   constructor(
@@ -47,6 +48,13 @@ export class MainScreenComponent implements OnInit {
           this.boolShowInfo = true;
       } else {
           this.boolShowInfo = false;
+      }
+  }
+  onTicketClick() {
+      if(this.boolShowTicket == false ){
+          this.boolShowTicket = true;
+      } else {
+          this.boolShowTicket = false;
       }
   }
   //--------------------------------------------------------------------------------------------------------------------
