@@ -1,13 +1,13 @@
 const ticketsCtrl = {};
 const qrcode = require('qrcode');
-const Camion = require('../Models/camiones.js');
+//const Camion = require('../Models/camiones.js');
 const Parada = require('../Models/paradas.js');
 const Usuario = require('../Models/usuario.js');
 
 ticketsCtrl.requestTicket = async (req, res, next) => {
 
     // Verificar si todavia hay asientos
-    const asientos = await Camion.findOne(
+    /*const asientos = await Camion.findOne(
       {
         strRuta : req.body.strRuta
       },
@@ -23,7 +23,7 @@ ticketsCtrl.requestTicket = async (req, res, next) => {
       });
     }else{
       asientos.intAsiOcup++;
-    }
+    }*/
     //Conseguir el usuario (id y nombre)
     const usuario = await Usuario.findOne(
       {
