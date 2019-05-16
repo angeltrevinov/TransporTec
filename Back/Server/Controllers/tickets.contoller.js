@@ -34,8 +34,7 @@ ticketsCtrl.requestTicket = async (req, res, next) => {
         strNombre: 1
       }
     );
-    //console.log(usuario);
-    //Conseguir la parada de subida
+    //Conseguir la parada de subida y su id
     const paradaS = await Parada.findOne(
       {
         strNombre: req.body.strNombreS
@@ -45,7 +44,7 @@ ticketsCtrl.requestTicket = async (req, res, next) => {
         strNombre: 1
       }
     );
-    //Obtener la parada de bajada
+    //Obtener la parada de bajada y su id
     const paradaB = await Parada.findOne(
       {
         strNombre: req.body.strNombreB
@@ -56,21 +55,15 @@ ticketsCtrl.requestTicket = async (req, res, next) => {
       }
     );
 
-    /*
-    console.log(paradaS);
-    console.log(paradaB);
-    console.log(asientos.intAsiOcup);
-    */
-
+    //Crear un json con el usuario y las paradas 
     var ticket = {};
     var key = 'Comprobante';
     ticket[key] = [];
     ticket[key].push(usuario);
     ticket[key].push(paradaS);
     ticket[key].push(paradaB);
-    console.log(ticket);
 
-    //                                                      //Request the data as a qr
+    //Request the data as a qr
     const qrres = await qrcode.toDataURL(JSON.stringify(ticket));
     if(!qrres) {
         return res.status(401).send({
