@@ -4,7 +4,7 @@ const authCtrl = {};
 authCtrl.LogIn = async (req, res, next) => {
     //LogIn method, finds the user by email and password and retrieves everything but the password
     const usuario = await Usuario.findOne(
-        { 
+        {
             strCorreo: req.body.strCorreo,
             strContraseña: req.body.strContraseña
         },
@@ -12,12 +12,12 @@ authCtrl.LogIn = async (req, res, next) => {
             strContraseña: 0
         }
     );
+    //Checar que exista el usuario
     if(!usuario){
         return res.status(400).send({
             message: 'This is an error!'
          });
     } else {
-        console.log(Usuario);
         res.json(usuario);
     }
 }

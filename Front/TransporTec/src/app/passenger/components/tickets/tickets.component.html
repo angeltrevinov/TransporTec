@@ -1,0 +1,10 @@
+<StackLayout orientation="vertical" width="250" height="400" backgroundColor="white" *ngIf=" !userService.strTicket ">
+    <Label text="Salida" horizontalAlignment="center"></Label>
+    <ListPicker [items]="strNombreParadas" [(ngModel)]="selectedSalida" width="200" height="100"></ListPicker>
+    <Label text="Bajada" horizontalAlignment="center"></Label>
+    <ListPicker [items]="strNombreParadas" [(ngModel)]="selectedBajada" width="200" height="100"></ListPicker>
+    <Button text="Button" (tap)="onSubmitTap()"></Button>
+</StackLayout>
+<StackLayout orientation="vertical" width="250" height="400" backgroundColor="white" *ngIf="userService.strTicket">
+    <Image src="{{ userService.strTicket }}"></Image>
+</StackLayout>
