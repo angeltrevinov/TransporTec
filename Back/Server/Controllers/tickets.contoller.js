@@ -34,6 +34,11 @@ ticketsCtrl.requestTicket = async (req, res, next) => {
         strNombre: 1
       }
     );
+    if(!usuario){
+      return res.status(403).send({
+        message: 'Error getting the ticket, try another hour'
+      });
+    }
     //Conseguir la parada de subida y su id
     const paradaS = await Parada.findOne(
       {
@@ -55,7 +60,7 @@ ticketsCtrl.requestTicket = async (req, res, next) => {
       }
     );
 
-    //Crear un json con el usuario y las paradas 
+    //Crear un json con el usuario y las paradas
     var ticket = {};
     var key = 'Comprobante';
     ticket[key] = [];
