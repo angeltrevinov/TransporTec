@@ -16,10 +16,11 @@ export class TicketsService {
 
       return this.http.post(strURL,
       {
-          _id : "A00821428",
-          strNombreS: "Nuevo Sur",
-          strNombreB: "TEC"
-      });
+          _id : 'A00821428',
+          strNombreS: 'Nuevo Sur',
+          strNombreB: 'TEC'
+      },
+          {responseType: 'text'});
 
   }
 }
